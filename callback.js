@@ -124,8 +124,8 @@ payBill(500,receipt); */
 
 
 
-
-//Student Details 
+/* 
+//Student Details  parameter name and callback function
 function checkResult(name ,callback){
     console.log(`${name} 's result is ready`);
     callback()
@@ -136,7 +136,7 @@ function showGrade(){
 checkResult("ranjith",showGrade);
 
 
-//Shopping App
+//Shopping App with parameter
 
 function addCart(product,callback){
     console.log(`${product} is Added to cart`);
@@ -190,7 +190,138 @@ function getUser(callback){
 function displayUser(){
     console.log("displaying user Details");
 }
-getUser(displayUser);
+getUser(displayUser); */
+
+
+//02/07/2026
+
+//User Registration 
+
+function registeruser(name,callback){
+    console.log("Registering User.....");
+
+    setTimeout(()=>{
+        console.log(name +  " registerd Successfully");
+        callback(name);
+    },2000)
+}
+
+function sendWelcomeEmail(name){
+    console.log( "Welcome Email sent to " +name);
+}
+registeruser("ranjith",sendWelcomeEmail);
+
+
+//Login --> Fetch Profile
+
+function login(username,callback){
+    console.log("Checking Login");
+    setTimeout(function(){
+        console.log("Login SuccessFull");
+        callback(username);
+    },1000);
+}
+function fetchProfile(username){
+    console.log("Fetching profile"+username);
+}
+login ("Ranjith",fetchProfile);
+
+
+
+
+
+//Back Transations 
+
+function withdraw(amount,callback){
+    console.log("Checking balance");
+    setTimeout(function(){
+        console.log("👌"+amount + " WithDraw");
+        callback(amount);
+
+    },1000)
+}
+function sendMsg(amount){
+    console.log("SMS",amount,"Debited");
+}
+withdraw(5000,sendMsg);
+
+
+//E-Commerce Order
+
+function placeOrder(product,callback){
+    console.log("Order Received ");
+    setTimeout(()=>{
+        console.log(product +" packed");
+        callback(product);
+
+    },2000);
+}
+function shopOrder(product){
+    console.log(product ,"shipped");
+}
+placeOrder("Laptop" , shopOrder);
+
+
+
+function getUser(id,callback){
+    console.log("Seaching Database");
+    setTimeout(()=>{
+        let user={
+            id:id,
+            name:"Ranjith"
+        }
+        callback(user);
+    },2000)
+}
+function displayUser(user){
+    console.log(user)
+}
+getUser(101,displayUser);
+
+
+
+
+//Multiple Callbacks 
+
+function uploadFile(file,callback){
+    console.log("Uploading "+file);
+    setTimeout(()=>{
+        console.log("Upload Complated");
+        callback(file)
+    },1000);
+}
+function saveDatabase(file){
+    console.log(file +" saved in database")
+
+}
+uploadFile("resume.pdf",saveDatabase);
+
+
+
+
+
+//Callback with success failer(Node.js Pattern) is pattern is used in node.js
+
+function login(username,password,callback){
+    if(password==="1234"){
+        callback(null,"Login Succesfull");
+    }
+    
+    else{
+        callback("Invalid Password",null)
+    }
+}
+login("ranjith","1234",(error,result)=>{
+    if(error){
+        console.log(error)
+    }
+    else{
+        console.log(result);
+    }
+
+});
+
+
 
 
 
