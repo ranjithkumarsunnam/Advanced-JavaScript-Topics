@@ -153,6 +153,10 @@ console.log(second);
 console.log(extracolors);
 
 
+let books =[1,2,3,4];
+console.log(books);
+
+
 
 
 
