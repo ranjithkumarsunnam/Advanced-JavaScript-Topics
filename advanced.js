@@ -110,3 +110,10 @@ numbers.forEach(element => {
     
 });
 //console.log(numbers);
+
+
+
+funcction mul(num){
+   return num*num;
+}
+console.log(mul(2,2)
