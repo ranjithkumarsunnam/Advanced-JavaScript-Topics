@@ -57,15 +57,3 @@ function login(callback){
     callback();
 }
 login (loginSucess);
-
-
-function loginSucess(name, password,callback){
-    console.log(" Login successfully")
-    callback(name, password)
-}
-
-function details(name, password){
-    cosole.log("Username"+name)
-    cosole.log("password"+password)
-}
-login("raki",12345,details)
