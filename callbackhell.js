@@ -56,3 +56,26 @@ login("Ranjith",12345,function(){
 
 })
 
+
+
+function GoodMorning(name,callback){
+    console.log(`Good morning ${name}`);
+    callback();
+}
+function sayHello(callback){
+    console.log(`Hello, Welcome to the world of javascript`);
+    callback();
+}
+function sayGoodnight(callback){
+    console.log(`Good Night`);
+    callback();
+}
+
+GoodMorning("Ranjith",()=>{
+    sayHello(()=>{
+        sayGoodnight(()=>{
+            console.log(`Have a nice day!`);
+        })
+    })
+})
+
